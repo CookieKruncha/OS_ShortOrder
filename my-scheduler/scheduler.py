@@ -121,48 +121,121 @@ class IdiotSandwich(Scheduler):
              standing - and keep the busiest station fed, because everything
              else runs at the rate that one clears.
         """
-        # Longest job first. `estimate_remaining` is the truth when durations
-        # are shown and a guess when they are hidden, so this works on the
-        # blind profile too - it is just as bad there.
         est = obs.estimate_remaining
-        rail = sorted(obs.ready, key=est, reverse=True)
-
         decision = Decision()
-        # `fill_idle` hands out the free cooks and gives back what is left,
-        # counting station places as it goes.
-        rest = fill_idle(decision, obs, rail)
 
-        # And now the bad part: take a cook off their dish for anything bigger.
-        #
-        # `fill_idle` already spent some station places above, and
-        # `obs.free_stations()` still reports what was free before it ran, so
-        # the places it used have to come off the count before this loop can
-        # trust it. Skip this and the engine refuses the assignments.
-        free = obs.free_stations()
-        for order_id in decision.assignments.values():
-            if order_id is None:
-                continue
-            assigned = obs.order(order_id)
-            if assigned is not None and assigned.station is not None:
-                free[assigned.station] = free.get(assigned.station, 0) - 1
+        # 1. Release doomed running orders
         for core in obs.working_cores:
             current = obs.order_on(core)
-            if current is None or not rest:
-                continue
-            candidate = obs.order(rest[0])
-            if candidate is None:
-                continue
-            # Only a place that is genuinely free counts. The place the
-            # preempted order was holding does not come back inside the same
-            # decision, so counting on it gets the assignment refused.
-            station = candidate.station
-            room = station is None or free.get(station, 0) > 0
-            if room and est(candidate) > est(current):
-                decision.assign(core, rest.pop(0))
-                if station is not None:
-                    free[station] = free.get(station, 0) - 1
+            # If the time required to finish is strictly greater than the time the customer will wait
+            if current and est(current) > current.time_left:
+                decision.idle(core)
+
+        # 2. Feasibility filter for ready orders
+        feasible_ready = [
+            o for o in obs.ready 
+            if est(o) + obs.kitchen.switch_cost <= o.time_left
+        ]
+
+        free = obs.free_stations()
+
+        def will_bump(order):
+            idx = (order.step or 0) + 1
+            while idx < len(order.steps):
+                step = order.steps[idx]
+                if step.kind == "wait":
+                    return False
+                if step.station is not None:
+                    if step.station != order.station:
+                        if free.get(step.station, 0) == 0:
+                            return True
+                    return False
+                idx += 1
+            return False
+
+        bottleneck = None
+        min_free = float('inf')
+        for st in obs.stations:
+            if st.capacity > 0 and st.free < min_free:
+                min_free = st.free
+                bottleneck = st.name
+
+        def sort_key(o):
+            return (
+                est(o), 
+                0 if getattr(o, 'station', None) == bottleneck else 1,
+                1 if will_bump(o) else 0
+            )
+
+        # 3. Shortest job first with safe tie-breakers
+        rail = sorted(feasible_ready, key=sort_key, reverse=False)
+
+        # `fill_idle` hands out the free cooks and gives back what is left
+        rest = fill_idle(decision, obs, rail)
+
+        # 4. Rescue Preemption
+        if obs.working_cores and rest:
+            for core_id, order_id in decision.assignments.items():
+                if order_id is not None:
+                    assigned = obs.order(order_id)
+                    if assigned and assigned.station is not None:
+                        free[assigned.station] = free.get(assigned.station, 0) - 1
+
+            switch = obs.kitchen.switch_cost
+            
+            for core in obs.working_cores:
+                if core.state == "switching":
+                    continue
+                    
+                current = obs.order_on(core)
+                if current is None:
+                    continue
+                    
+                best_idx = -1
+                for i, candidate_id in enumerate(rest):
+                    candidate = obs.order(candidate_id)
+                    if candidate is None:
+                        continue
+                        
+                    station = candidate.station
+                    if station is not None:
+                        if not (free.get(station, 0) > 0 or station == current.station):
+                            continue
+                            
+                    laxity = candidate.time_left - (est(candidate) + switch)
+                    # Rescue condition
+                    is_rescue = (laxity < 20 and est(current) > est(candidate) + switch)
+                    
+                    # Safe Big Win condition (only when not congested)
+                    is_big_win = False
+                    if len(obs.ready) <= obs.kitchen.cores * 4:
+                        current_burst = getattr(current, 'work_until_wait', None)
+                        if current_burst is None:
+                            current_burst = est(current)
+                            
+                        cand_burst = getattr(candidate, 'work_until_wait', None)
+                        if cand_burst is None:
+                            cand_burst = est(candidate)
+                            
+                        is_big_win = (current_burst - cand_burst > 10.0 * switch)
+                    
+                    if is_rescue or is_big_win:
+                        best_idx = i
+                        break
+                
+                if best_idx != -1:
+                    candidate = obs.order(rest.pop(best_idx))
+                    decision.assign(core, candidate)
+                    if current.station is not None:
+                        free[current.station] = free.get(current.station, 0) + 1
+                    if candidate.station is not None:
+                        free[candidate.station] = free.get(candidate.station, 0) - 1
+
+        # 5. Alarm
+        if obs.ready:
+            decision.wake_in(5)
 
         return decision.annotate(
-            text=f"{len(obs.ready)} on the rail, biggest first",
+            text=f"{len(obs.ready)} on rail, {len(rail)} feasible",
             queue=[o.id for o in rail],
         )

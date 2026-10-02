@@ -1,0 +1,21 @@
+usage: python -m kitchen.cli compare [-h] [--seeds SEEDS] [--workers WORKERS]
+                                     [--json] [--config CONFIG]
+                                     [--cores CORES]
+                                     [--switch-cost SWITCH_COST]
+                                     [--ticks TICKS] [--blind]
+                                     [scheduler]
+
+positional arguments:
+  scheduler
+
+options:
+  -h, --help            show this help message and exit
+  --seeds SEEDS
+  --workers WORKERS
+  --json
+  --config CONFIG       TOML profile (default: the course profile)
+  --cores CORES         override the number of cooks
+  --switch-cost SWITCH_COST
+                        override the context-switch cost
+  --ticks TICKS         override the length of the run
+  --blind               hide step durations from the scheduler

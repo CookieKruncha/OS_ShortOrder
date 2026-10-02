@@ -1,0 +1,16 @@
+reference schedulers:
+  middle_management fifo: first come, first served; never preempts
+  headless_chicken round robin: eight-tick time slices in arrival order
+  maitre_d       sjf: shortest job first; never preempts
+  sous_chef      srtf: shortest remaining time first, preempting when it pays
+  stickler       priority: highest priority first, preemptive
+  trainee        edf: earliest deadline first, preemptive
+  portion_control stride: proportional share, cook time in the ratio of the priorities
+  smoke_break    mlfq: three feedback queues, quanta 12/24/48, boost every 200 ticks
+  julia_child    the previous strongest reference, and still a hard one to beat
+  gordon_ramsay  the strongest reference, and the one to beat
+  idiot_sandwich the starter you were given: longest job first, preempting for anything longer
+  work_experience random: fills idle cooks with random ready orders
+  dishwasher     never assigns a cook; everybody walks out
+
+public practice seeds: 1001, 1002, 1003, 1004, 1005
