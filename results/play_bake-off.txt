@@ -1,0 +1,21 @@
+
+  Gucci_Morty on "bake-off"  seed 7  cores 2  switch cost 2
+  score 76.5   = completion 27.8 + response 4.9 + turnaround 4.2 + slowdown 12.3 + switching 14.9 + fairness 12.5
+
+  orders                255    served 236 · abandoned 19 · unfinished 0
+  completion            92.5%   priority-weighted 93.8%   abandoned by priority 1/2/3: 17/0/2
+  response mean/p95     38.7 / 248 ticks   (11 never got a cook)
+  turnaround mean/p95   120.3 / 347 ticks
+  waiting mean/max      43.2 / 508 ticks
+  slowdown mean/max     1.96 / 8.00   bounded 1.22 / 3.41
+  context switches      555    553 necessary + 2 extra   (1110 ticks, 32.1% of capacity)   preemptions 2
+  utilisation           59.2%   idle 8.7%   wasted work 89 ticks
+  station board         2 places   66.6% in use   full 46.2% of the service
+  station pass          1 place   31.7% in use   full 31.7% of the service
+  station bar           1 place   11.1% in use   full 11.1% of the service
+  station stalls        0 assignments refused (a full station)   0 orders sent back to the rail
+  fairness (Jain)       0.832
+  throughput            13.66 served per 100 ticks   makespan 1728
+  decisions             888    mean 0.032 ms · slowest 0.146 ms · errors 0 · timeouts 0 · rejected 0
+
+  1728 ticks in 324.0 ms, ended drained · engine 0.6.0 · config 84973ac0c3c12d62 · seed 7

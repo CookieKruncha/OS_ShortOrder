@@ -1,0 +1,19 @@
+
+  "friday rush" · 10 seeds · engine 0.6.0 · config 7fe76d5da0a6a48f
+
+  scheduler           score    ±ci   served  response  slowdown  switches necessary  fairness
+  julia_child          57.3    0.7    72.6%      99.2      2.98     498.6       99%     0.583
+  gordon_ramsay        57.1    0.7    72.2%      96.5      2.93     499.7       99%     0.576
+  maitre_d             54.1    0.7    72.3%      94.1      3.91     535.0      100%     0.441
+  Gucci_Morty          54.0    0.7    72.9%      91.9      3.87     544.6       98%     0.432
+  sous_chef            50.7    0.6    70.2%      96.5      3.97     622.9       84%     0.431
+  trainee              44.2    0.6    45.7%     145.6      6.15     615.5       89%     0.630
+  work_experience      42.7    0.5    30.3%     107.6      6.10     290.0      100%     0.676
+  portion_control      42.6    0.6    30.8%      81.6      6.15     417.4       93%     0.701
+  stickler             42.2    0.5    47.0%     131.0      5.92     422.9       78%     0.550
+  middle_management    41.9    0.6    28.6%     124.3      6.54     270.5      100%     0.677
+  smoke_break          39.6    1.0    30.7%     110.6      6.52     420.0       81%     0.675
+  headless_chicken     35.8    0.7    19.8%     100.6      6.89     474.5       75%     0.708
+  idiot_sandwich       35.3    0.4    13.0%      93.3      7.01     273.3       85%     0.702
+  dishwasher            0.0    0.0     0.0%     182.7      7.65       0.0      100%     0.000
+

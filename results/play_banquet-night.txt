@@ -1,0 +1,21 @@
+
+  Gucci_Morty on "banquet night"  seed 7  cores 2  switch cost 1
+  score 65.2   = completion 27.9 + response 4.0 + turnaround 5.6 + slowdown 9.2 + switching 12.7 + fairness 5.8
+
+  orders                281    served 261 · abandoned 20 · unfinished 0
+  completion            92.9%   priority-weighted 95.6%   abandoned by priority 1/2/3: 20/0/0
+  response mean/p95     53.9 / 496 ticks   (20 never got a cook)
+  turnaround mean/p95   74.1 / 496 ticks
+  waiting mean/max      56.8 / 638 ticks
+  slowdown mean/max     3.24 / 13.00   bounded 1.63 / 9.38
+  context switches      380    322 necessary + 58 extra   (380 ticks, 11.3% of capacity)   preemptions 60
+  utilisation           86.3%   idle 2.4%   wasted work 0 ticks
+  station board         2 places   64.8% in use   full 37.8% of the service
+  station pass          1 place   43.8% in use   full 43.8% of the service
+  station bar           1 place   21.9% in use   full 21.9% of the service
+  station stalls        0 assignments refused (a full station)   28 orders sent back to the rail
+  fairness (Jain)       0.388
+  throughput            15.52 served per 100 ticks   makespan 1682
+  decisions             652    mean 0.039 ms · slowest 0.103 ms · errors 0 · timeouts 0 · rejected 0
+
+  1682 ticks in 154.2 ms, ended drained · engine 0.6.0 · config d0373c4777a514e8 · seed 7

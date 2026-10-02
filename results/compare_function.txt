@@ -1,0 +1,19 @@
+
+  "private function" · 10 seeds · engine 0.6.0 · config bcfb02d526f6a3af
+
+  scheduler           score    ±ci   served  response  slowdown  switches necessary  fairness
+  gordon_ramsay        86.5    2.5    99.3%      10.9      1.51      28.6       52%     0.892
+  portion_control      82.7    1.4   100.0%      12.7      2.33     153.9       10%     0.932
+  smoke_break          81.3    1.7   100.0%      16.3      2.27      79.5       19%     0.874
+  headless_chicken     81.2    1.4   100.0%      12.0      2.85     244.0        6%     0.908
+  sous_chef            81.2    3.2   100.0%      62.4      1.36      17.9       84%     0.925
+  Gucci_Morty          80.9    3.0   100.0%      62.5      1.37      17.7       85%     0.918
+  trainee              79.7    3.4   100.0%      68.9      1.43      18.1       83%     0.897
+  julia_child          79.6    3.6   100.0%      72.3      1.47      16.3       92%     0.893
+  stickler             78.9    4.0   100.0%      76.4      1.46      17.3       87%     0.884
+  maitre_d             74.1    4.4   100.0%      88.4      1.86      15.0      100%     0.768
+  middle_management    67.9    5.0   100.0%     111.6      2.57      15.0      100%     0.634
+  work_experience      66.8    4.6   100.0%     112.6      2.59      15.0      100%     0.598
+  idiot_sandwich       61.8    5.8    98.7%     161.8      4.04      15.0      100%     0.543
+  dishwasher            0.0    0.0     0.0%    1062.8     13.65       0.0      100%     0.000
+

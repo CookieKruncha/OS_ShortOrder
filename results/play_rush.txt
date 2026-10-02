@@ -1,0 +1,21 @@
+
+  Gucci_Morty on "friday rush"  seed 7  cores 2  switch cost 2
+  score 54.5   = completion 22.2 + response 2.9 + turnaround 4.6 + slowdown 4.0 + switching 14.7 + fairness 6.2
+
+  orders                463    served 343 · abandoned 120 · unfinished 0
+  completion            74.1%   priority-weighted 74.3%   abandoned by priority 1/2/3: 97/0/23
+  response mean/p95     82.8 / 483 ticks   (116 never got a cook)
+  turnaround mean/p95   104.1 / 507 ticks
+  waiting mean/max      85.4 / 689 ticks
+  slowdown mean/max     4.94 / 19.89   bounded 3.78 / 17.90
+  context switches      525    513 necessary + 12 extra   (1050 ticks, 29.8% of capacity)   preemptions 14
+  utilisation           67.7%   idle 2.5%   wasted work 32 ticks
+  station board         2 places   54.8% in use   full 22.4% of the service
+  station pass          1 place   60.6% in use   full 60.6% of the service
+  station bar           1 place   24.8% in use   full 24.8% of the service
+  station stalls        0 assignments refused (a full station)   18 orders sent back to the rail
+  fairness (Jain)       0.412
+  throughput            19.50 served per 100 ticks   makespan 1759
+  decisions             944    mean 0.122 ms · slowest 0.426 ms · errors 0 · timeouts 0 · rejected 0
+
+  1759 ticks in 439.4 ms, ended drained · engine 0.6.0 · config 7fe76d5da0a6a48f · seed 7

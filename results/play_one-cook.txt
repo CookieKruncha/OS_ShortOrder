@@ -1,0 +1,21 @@
+
+  Gucci_Morty on "one cook"  seed 7  cores 1  switch cost 2
+  score 65.4   = completion 27.8 + response 4.7 + turnaround 5.9 + slowdown 5.9 + switching 14.5 + fairness 6.6
+
+  orders                152    served 141 · abandoned 11 · unfinished 0
+  completion            92.8%   priority-weighted 91.8%   abandoned by priority 1/2/3: 8/0/3
+  response mean/p95     40.9 / 169 ticks   (10 never got a cook)
+  turnaround mean/p95   67.7 / 185 ticks
+  waiting mean/max      43.2 / 556 ticks
+  slowdown mean/max     3.59 / 16.90   bounded 2.56 / 16.90
+  context switches      211    204 necessary + 7 extra   (422 ticks, 24.4% of capacity)   preemptions 7
+  utilisation           69.3%   idle 6.4%   wasted work 14 ticks
+  station board         2 places   28.4% in use   full 0.0% of the service
+  station pass          1 place   28.4% in use   full 28.4% of the service
+  station bar           1 place   8.4% in use   full 8.4% of the service
+  station stalls        0 assignments refused (a full station)   0 orders sent back to the rail
+  fairness (Jain)       0.442
+  throughput            8.14 served per 100 ticks   makespan 1732
+  decisions             516    mean 0.018 ms · slowest 0.103 ms · errors 0 · timeouts 0 · rejected 0
+
+  1732 ticks in 114.6 ms, ended drained · engine 0.6.0 · config 4905be5597ca50c7 · seed 7

@@ -1,0 +1,12 @@
+submission: Gucci_Morty v1 (IdiotSandwich)
+  runs played                  5
+  decisions                    3354
+  mean decision (ms)           0.031
+  slowest decision (ms)        0.244
+  deadline (ms)                50
+  exceptions                   0
+  over deadline                0
+  rejected assignments         0
+  served                       1192 of 1263
+  mean score                   67.0
+  PASSED

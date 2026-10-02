@@ -1,0 +1,19 @@
+
+  Gucci_Morty on "private function"  seed 7  cores 2  switch cost 2
+  score 83.9   = completion 25.0 + response 21.4 + turnaround 5.3 + slowdown 5.3 + switching 4.7 + fairness 22.2
+
+  orders                15    served 15 · abandoned 0 · unfinished 0
+  completion            100.0%   priority-weighted 100.0%   abandoned by priority 1/2/3: 0/0/0
+  response mean/p95     36.1 / 187 ticks   (0 never got a cook)
+  turnaround mean/p95   167.5 / 494 ticks
+  waiting mean/max      34.0 / 183 ticks
+  slowdown mean/max     1.41 / 2.68   bounded 1.41 / 2.68
+  context switches      16    15 necessary + 1 extra   (32 ticks, 1.1% of capacity)   preemptions 1
+  utilisation           65.3%   idle 33.6%   wasted work 0 ticks
+  station board         2 places   66.4% in use   full 53.2% of the service
+  station stalls        0 assignments refused (a full station)   0 orders sent back to the rail
+  fairness (Jain)       0.889
+  throughput            0.99 served per 100 ticks   makespan 1508
+  decisions             97    mean 0.012 ms · slowest 0.051 ms · errors 0 · timeouts 0 · rejected 0
+
+  1508 ticks in 5.5 ms, ended drained · engine 0.6.0 · config bcfb02d526f6a3af · seed 7

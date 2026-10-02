@@ -86,7 +86,7 @@ from kitchen import Decision, Scheduler, fill_idle
 class IdiotSandwich(Scheduler):
     # What this scheduler calls itself in your own results and replays. The
     # leaderboard uses the identity Moodle has for you.
-    name = "idiot_sandwich"
+    name = "Gucci_Morty"
     version = "1"
 
     def reset(self, seed):

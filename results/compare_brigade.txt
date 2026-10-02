@@ -1,0 +1,19 @@
+
+  "brigade" · 10 seeds · engine 0.6.0 · config 0dbe042085d37998
+
+  scheduler           score    ±ci   served  response  slowdown  switches necessary  fairness
+  gordon_ramsay        66.4    0.8    88.9%      54.7      2.05     792.4       99%     0.554
+  julia_child          66.1    0.8    88.9%      57.9      2.09     790.7       99%     0.560
+  maitre_d             62.8    0.7    88.0%      57.3      2.54     787.6      100%     0.421
+  Gucci_Morty          62.7    0.6    88.6%      53.5      2.41     820.6       97%     0.404
+  sous_chef            59.7    0.7    86.5%      59.2      2.49     904.7       86%     0.391
+  portion_control      57.7    0.6    75.5%      41.5      4.00     802.0       94%     0.557
+  work_experience      54.5    0.8    65.4%      72.4      4.58     620.5      100%     0.592
+  middle_management    53.7    0.9    65.2%      90.8      5.37     649.9      100%     0.621
+  smoke_break          52.1    1.1    67.0%      77.5      5.12     805.6       86%     0.597
+  stickler             50.5    0.9    65.7%      98.7      5.29     687.0       89%     0.524
+  trainee              49.9    0.6    67.1%     118.5      4.83     870.1       84%     0.534
+  headless_chicken     48.6    0.9    57.8%      77.6      5.90     897.6       79%     0.670
+  idiot_sandwich       46.9    0.6    44.0%      60.6      5.25     587.0       91%     0.602
+  dishwasher            0.0    0.0     0.0%     181.7      7.52       0.0      100%     0.000
+

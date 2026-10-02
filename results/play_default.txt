@@ -1,0 +1,21 @@
+
+  Gucci_Morty on "lunch service"  seed 7  cores 2  switch cost 2
+  score 71.9   = completion 29.0 + response 6.3 + turnaround 6.6 + slowdown 8.8 + switching 14.0 + fairness 7.2
+
+  orders                259    served 250 · abandoned 9 · unfinished 0
+  completion            96.5%   priority-weighted 95.2%   abandoned by priority 1/2/3: 5/0/4
+  response mean/p95     24.4 / 110 ticks   (7 never got a cook)
+  turnaround mean/p95   53.4 / 165 ticks
+  waiting mean/max      29.3 / 679 ticks
+  slowdown mean/max     2.66 / 10.39   bounded 1.70 / 10.39
+  context switches      403    376 necessary + 27 extra   (806 ticks, 24.2% of capacity)   preemptions 29
+  utilisation           64.0%   idle 11.8%   wasted work 15 ticks
+  station board         2 places   53.5% in use   full 23.6% of the service
+  station pass          1 place   53.7% in use   full 53.7% of the service
+  station bar           1 place   15.5% in use   full 15.5% of the service
+  station stalls        0 assignments refused (a full station)   23 orders sent back to the rail
+  fairness (Jain)       0.479
+  throughput            15.00 served per 100 ticks   makespan 1667
+  decisions             687    mean 0.023 ms · slowest 0.069 ms · errors 0 · timeouts 0 · rejected 0
+
+  1667 ticks in 154.1 ms, ended drained · engine 0.6.0 · config 6b0250ed7ed94422 · seed 7

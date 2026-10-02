@@ -1,0 +1,21 @@
+
+  Gucci_Morty on "blind service"  seed 7  cores 2  switch cost 2
+  score 68.0   = completion 28.8 + response 5.1 + turnaround 6.2 + slowdown 6.4 + switching 14.7 + fairness 6.7
+
+  orders                255    served 245 · abandoned 10 · unfinished 0
+  completion            96.1%   priority-weighted 93.7%   abandoned by priority 1/2/3: 4/0/6
+  response mean/p95     36.2 / 168 ticks   (7 never got a cook)
+  turnaround mean/p95   60.5 / 184 ticks
+  waiting mean/max      38.4 / 629 ticks
+  slowdown mean/max     3.37 / 16.50   bounded 2.33 / 12.50
+  context switches      390    382 necessary + 8 extra   (780 ticks, 22.6% of capacity)   preemptions 10
+  utilisation           66.4%   idle 11.0%   wasted work 29 ticks
+  station board         2 places   54.4% in use   full 26.9% of the service
+  station pass          1 place   54.1% in use   full 54.1% of the service
+  station bar           1 place   15.1% in use   full 15.1% of the service
+  station stalls        0 assignments refused (a full station)   39 orders sent back to the rail
+  fairness (Jain)       0.449
+  throughput            14.19 served per 100 ticks   makespan 1726
+  decisions             683    mean 0.096 ms · slowest 0.287 ms · errors 0 · timeouts 0 · rejected 0
+
+  1726 ticks in 206.9 ms, ended drained · engine 0.6.0 · config 0b025e8b9227b0b2 · seed 7

@@ -1,0 +1,21 @@
+
+  Gucci_Morty on "service line"  seed 7  cores 4  switch cost 2
+  score 77.3   = completion 29.5 + response 10.6 + turnaround 6.5 + slowdown 9.8 + switching 13.2 + fairness 7.8
+
+  orders                399    served 392 · abandoned 7 · unfinished 0
+  completion            98.2%   priority-weighted 98.0%   abandoned by priority 1/2/3: 5/0/2
+  response mean/p95     4.5 / 8 ticks   (0 never got a cook)
+  turnaround mean/p95   55.3 / 212 ticks
+  waiting mean/max      26.6 / 590 ticks
+  slowdown mean/max     2.25 / 12.00   bounded 1.53 / 12.00
+  context switches      757    664 necessary + 93 extra   (1514 ticks, 22.6% of capacity)   preemptions 93
+  utilisation           59.0%   idle 18.4%   wasted work 268 ticks
+  station board         4 places   52.0% in use   full 1.3% of the service
+  station pass          1 place   94.9% in use   full 94.9% of the service
+  station bar           2 places   11.7% in use   full 1.4% of the service
+  station stalls        0 assignments refused (a full station)   104 orders sent back to the rail
+  fairness (Jain)       0.517
+  throughput            23.36 served per 100 ticks   makespan 1678
+  decisions             935    mean 0.035 ms · slowest 0.113 ms · errors 0 · timeouts 0 · rejected 0
+
+  1678 ticks in 254.6 ms, ended drained · engine 0.6.0 · config ca840fbd495a1ea9 · seed 7
